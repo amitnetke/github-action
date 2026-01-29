@@ -1,8 +1,8 @@
 name: 01 - Building Blocks
 on: push  
 jobs:
-  build:
+  echo-hello:
     runs-on: ubuntu-latest
     steps:
       -name: say-hello
-       run: echo "Hello, GitHub Actions!"
+       run: echo "Hello, World!"
