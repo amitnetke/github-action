@@ -8,8 +8,8 @@ on:
     branches:
       - main
 
-  jobs:
-    echo:
-      runs-on: ubuntu-latest
-      steps:
-      - run: echo "PR closed"
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "PR closed"
