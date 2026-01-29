@@ -1,4 +1,4 @@
-name: 02 - workslow event
+name: 02 - workflow event
 on: 
   push:
   pull_request:
