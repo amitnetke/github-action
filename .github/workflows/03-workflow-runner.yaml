@@ -5,4 +5,4 @@ ubuntu-echo:
     runs-on: ubuntu-latest
     steps:
       - name: show os
-        run: echo "runner os : $runner.os"
+        run: echo "runner os $runner.os"
