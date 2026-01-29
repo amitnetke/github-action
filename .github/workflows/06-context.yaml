@@ -19,3 +19,5 @@ jobs:
           echo "Server URL: ${{ github.server_url }}"
           echo "API URL: ${{ github.api_url }}"
           echo "GraphQL URL: ${{ github.graphql_url }}"
+      - name: retrieve variable
+        run: echo "variable value is ${{ vars.MY_VARIABLE }}"
