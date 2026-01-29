@@ -8,11 +8,15 @@ on:
         type: boolean
         default: false
 env:
-  MY_WORKFLOW_VAR: "This is a sample variable"
-  MY_OVERWRIDDEN_VAR: "This value will be overridden"
+  MY_WORKFLOW_VAR: "workflow"
+  MY_OVERWRIDDEN_VAR: "workflow"
 jobs:
   show-context:
     runs-on: ubuntu-latest
+    env:
+        MY_OVERWRIDDEN_VAR: "Job"
+        MY_JOB_VAR: "Job"
+
     steps:
       - name: Show GitHub Context
         run: |
@@ -31,3 +35,8 @@ jobs:
           echo "GraphQL URL: ${{ github.graphql_url }}"
       - name: retrieve variable
         run: echo "variable value is ${{ vars.MY_VARIABLE }}"
+      - name: print env variable
+        run: |
+          echo "MY_WORKFLOW_VAR is $MY_WORKFLOW_VAR"
+          echo "MY_JOB_VAR is $MY_JOB_VAR"
+          echo "MY_OVERWRIDDEN_VAR is $MY_OVERWRIDDEN_VAR"
