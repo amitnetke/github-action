@@ -6,6 +6,16 @@ jobs:
   echo1:
     runs-on: ubuntu-latest
     steps:
+      - name: Print PR title
+        run: echo ""${{ github.event.pull_request.title}}""
+      - name: Print PR labels
+        run: |
+          cat << EOF
+          ${{ toJson(github.event.pull_request.labels) }}
+          EOF
+      - name: Bug Step
+        if: ${{ !cancelled() && contains(github.event.pull_request.title, 'bugfix') }}
+        run: echo "I am bug fix"
       - name: Failing step
         run: exit 0
       - name: I will be skipped
@@ -21,5 +31,3 @@ jobs:
       - name: I will execute when cancelled
         if: ${{ cancelled() }}
         run: echo "I will be print if the job is cancelled"
-      - name: Sleep for 20 seconds
-        run: sleep 20
