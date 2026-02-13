@@ -9,6 +9,7 @@ on:
         description: "Skip deployment and only print build output"
       target:
         type: environment
+        required: true
         description: "Which envvironment the workflow will target"
       tag:
         type: choice
@@ -16,18 +17,19 @@ on:
           - v1
           - v2
           - v3
+        default: v3
         description: "Release from which to build and deploy"
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        run: echo "Building from tag <retrieve the value of tag input here>"
+        run: echo "Building from tag ${{ inputs.tag }}"
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ !inputs.dry-run }}
     needs: build
     environment: ${{ inputs.target }}
     steps:
       - name: Deploy
-        if: ${{ !inputs.dry-run }}
-        run: echo "Deploying to <retrieve the value of target input here>"
+        run: echo "Deploying to ${{ inputs.target }}"
