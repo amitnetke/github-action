@@ -21,7 +21,7 @@ jobs:
           echo "Step env var2: $step_var2"
           echo "job env var: $JOB_VAR"
           echo "workflow env var: $MY_WORKFLOW_VAR"
-          echo "overriddne env var: $MY_OVERWRIDDEN_VAR"
+          echo "overriddne env var: $OVERWRIDDEN"
       - name: Overwrite Job Variable
         env:
           OVERWRIDDEN: 'I have been overriddne'
