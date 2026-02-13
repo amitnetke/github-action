@@ -1,6 +1,6 @@
 
 name: 07 - Using Expression
-run-name: 07 - Using Expression | DEBUG - ${{input.debug}}
+run-name: 07 - Using Expression | DEBUG - ${{inputs.debug}}
 
 on:
   push:
