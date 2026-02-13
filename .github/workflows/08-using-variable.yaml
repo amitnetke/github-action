@@ -37,15 +37,6 @@ jobs:
           echo "Org OVERWRIDDEN var: ${{ vars.OVERWRITTEN_VAR }}"
           echo "Repo vars: ${{ vars.REPOSITORY_VAR }}"
 
-  echo-prod:
-    runs-on: ubuntu-latest
-    environment: prod
-    steps:
-      - name: Print Variable
-        echo "Org Var: ${{ vars.ORG_VAR }}"
-        echo "Org OVERWRIDDEN var: ${{ vars.OVERWRITTEN_VAR }}"
-        echo "Repo vars: ${{ vars.REPOSITORY_VAR }}"
-        echo "Environment vars: ${{ vars.TARGET_VAR }}"
 
   echho-undefined:
     runs-on: ubuntu-latest
