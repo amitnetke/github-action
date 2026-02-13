@@ -1,8 +1,6 @@
 name: 02 - workflow event
 on: 
   push:
-  schedule:
-    - cron: '*/15 * * * *'  # every 15 minutes
   workflow_dispatch:  
 jobs:
   echo:
