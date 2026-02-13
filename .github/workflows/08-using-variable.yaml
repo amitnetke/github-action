@@ -26,4 +26,4 @@ jobs:
         env:
           OVERWRIDDEN: 'I have been overriddne'
         run: |
-          echo: "Step env var: ${{ env.OVERWRIDDEN }}"
+          echo "step env var: ${{env.OVERWRIDDEN}}"
