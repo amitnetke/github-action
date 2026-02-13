@@ -2,9 +2,6 @@
 name: 07 - Using Expression
 run-name: 07 - Using Expression | DEBUG - ${{ input.debug && 'ON' || 'OFF' }}
 
-env:
-  MY_VAR_WITH_DEFAULT: ${{ vars.MY_VAR || 'default_value' }}
-
 on:
   push:
   workflow_dispatch:
