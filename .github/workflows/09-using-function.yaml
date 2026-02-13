@@ -1,6 +1,5 @@
 name: 09-using function
 on:
-  push:
   workflow_dispatch:
 jobs:
   echo1:
