@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
 env:
     MY_WORKFLOW_VAR: "I am a MY_WORKFLOW_VAR"
+    UNDEFINED_VAR_WITH_DEFAULT: ${{ vars.UNDEFINED_VAR  || 'default value' }}
 jobs:
   echo:
     runs-on: ubuntu-latest
@@ -27,3 +28,26 @@ jobs:
           OVERWRIDDEN: 'I have been overriddne'
         run: |
           echo "step env var: ${{env.OVERWRIDDEN}}"
+  echo2:
+    runs_on: ubuntu-latest
+    steps:
+      - name: Print Variable
+        run: |
+          echo "Org Var: ${{vars.ORG_VAR}}"
+          echo "Org OVERWRIDDEN var: ${{ vars.OVERWRITTEN_VAR }}"
+          echo "Repo vars: ${{ vars.REPOSITORY_VAR }}"
+  echo-prod:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Print Variable
+        echo "Org Var: ${{vars.ORG_VAR}}"
+        echo "Org OVERWRIDDEN var: ${{ vars.OVERWRITTEN_VAR }}"
+        echo "Repo vars: ${{ vars.REPOSITORY_VAR }}"
+        echo "Environment vars: ${{ vars.TARGET_VAR }}"
+  echho-undefined:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Undefined Variable
+        run: |
+          echo "Org var: ${{ env.UNDEFINED_VAR_WITH_DEFAULT }}"
