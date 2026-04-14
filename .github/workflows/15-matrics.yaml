@@ -11,8 +11,8 @@ jobs:
         os:
           - ubuntu-latest
           - windows-latest
-        include:
-          - node: 12
+        exclude:
+          - node: 14
             os: ubuntu-latest
     steps:
       - name: setup node
