@@ -28,6 +28,7 @@ jobs:
         run: echo "Running E2E"
   deploy-prod:
     runs-on: ubuntu-latest
+    needs: e2e-tests
     environment: ${{ inputs.target-env }}
 
     env:
