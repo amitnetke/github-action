@@ -18,5 +18,5 @@ jobs:
 
     steps:
       - name: Echo Vars
-        runs: |
+        run: |
           echo "Env Variable: $MY_ENV_VALUE"
