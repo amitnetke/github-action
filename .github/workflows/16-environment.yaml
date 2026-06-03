@@ -9,7 +9,7 @@ on:
         default: staging
 
 jobs:
-  echo-staging:
+  deploy-staging:
     runs-on: ubuntu-latest
     environment: staging
 
@@ -20,7 +20,13 @@ jobs:
       - name: Echo Vars
         run: |
           echo "Env Variable: $MY_ENV_VALUE"
-  echo-prod:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needss: deploy-staging
+    steps:
+      - name: E2E Tests
+        run: echo "Running E2E"
+  deploy-prod:
     runs-on: ubuntu-latest
     environment: ${{ inputs.target-env }}
 
