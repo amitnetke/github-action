@@ -22,7 +22,7 @@ jobs:
           echo "Env Variable: $MY_ENV_VALUE"
   e2e-tests:
     runs-on: ubuntu-latest
-    needss: deploy-staging
+    needs: deploy-staging
     steps:
       - name: E2E Tests
         run: echo "Running E2E"
